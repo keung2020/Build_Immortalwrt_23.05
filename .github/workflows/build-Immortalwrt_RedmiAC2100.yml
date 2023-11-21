@@ -37,6 +37,8 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
+    permissions:
+      contents: write
 
     steps:
     - name: Checkout
@@ -161,7 +163,7 @@ jobs:
       id: tag
       if: env.UPLOAD_RELEASE == 'true' && !cancelled()
       run: |
-        echo "release_tag=ImmortalWrt_2305_Redmi_AC2100_$(date +"%Y.%m.%d-%H%M")" >>$GITHUB_OUTPUT
+        echo "release_tag=ImmortalWrt_23.05_Redmi_AC2100_$(date +"%Y.%m.%d-%H%M")" >>$GITHUB_OUTPUT
         touch release.txt
         [ $UPLOAD_COWTRANSFER = true ] && echo "🔗 [Cowtransfer](${{ steps.cowtransfer.outputs.url }})" >> release.txt
         [ $UPLOAD_WETRANSFER = true ] && echo "🔗 [WeTransfer](${{ steps.wetransfer.outputs.url }})" >> release.txt
