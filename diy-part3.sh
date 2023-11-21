@@ -37,7 +37,7 @@ sed -i 's/ImmortalWrt/QingRT_$(TZ=UTC-8 date "+%Y%m%d")/g' package/base-files/fi
 # sed -i "24a\sed -i '/DISTRIB_REVISION/d' /etc/openwrt_release" package/emortal/default-settings/files/zzz-default-settings
 # sed -i "25a\echo \"DISTRIB_REVISION=\'18.06 by Openwrt\'\" >> /etc/openwrt_release" package/emortal/default-settings/files/zzz-default-settings
 sed -i "24a\sed -i '/DISTRIB_DESCRIPTION/d' /etc/openwrt_release" package/emortal/default-settings/files/99-default-settings
-sed -i "25a\echo \"DISTRIB_DESCRIPTION=\'BrianLuo Compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ ImmortalWrt 21.02 \'\" >> /etc/openwrt_release" package/emortal/default-settings/files/99-default-settings
+sed -i "25a\echo \"DISTRIB_DESCRIPTION=\'BrianLuo Compiled in $(TZ=UTC-8 date "+%Y.%m.%d") @ ImmortalWrt 23.05 \'\" >> /etc/openwrt_release" package/emortal/default-settings/files/99-default-settings
 
 # 设置密码为空
 sed -i '/CYXluq4wUazHjmCDBCqXF/d' package/emortal/default-settings/files/99-default-settings 
