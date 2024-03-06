@@ -109,7 +109,6 @@ jobs:
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
 
     - name: 缓存加速
-      if: env.CACHEWRTBUILD_SWITCH == 'true'
       uses: stupidloud/cachewrtbuild@main
       with:
         ccache: 'true'
