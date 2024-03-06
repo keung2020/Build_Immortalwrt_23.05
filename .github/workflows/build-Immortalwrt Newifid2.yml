@@ -114,8 +114,8 @@ jobs:
       uses: stupidloud/cachewrtbuild@main
       with:
         ccache: 'true'
-        mixkey: 'x86_64'
-        prefix: 'ramips'
+        mixkey: 'ramips'
+        prefix: 'openwrt'
 
     - name: Download package
       id: package
