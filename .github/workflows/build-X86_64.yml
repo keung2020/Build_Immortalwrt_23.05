@@ -37,25 +37,10 @@ env:
 jobs:
   build:
     runs-on: ubuntu-20.04
-    permissions:
-      contents: write
 
     steps:
     - name: Checkout
-      uses: actions/checkout@main
-
-    - name: 释放Ubuntu磁盘空间
-      uses: endersonmenezes/free-disk-space@v2
-      with:
-        remove_android: true
-        remove_dotnet: true
-        remove_haskell: true
-        remove_tool_cache: true
-        remove_swap: true
-        remove_packages: "azure-cli google-cloud-cli microsoft-edge-stable google-chrome-stable firefox postgresql* temurin-* *llvm* mysql* dotnet-sdk-*"
-        remove_packages_one_command: true
-        remove_folders: "/usr/share/swift /usr/share/miniconda /usr/share/az* /usr/share/glade* /usr/local/lib/node_modules /usr/local/share/chromium /usr/local/share/powershell"
-        testing: false
+      uses: actions/checkout@v4
 
     - name: Initialization environment
       env:
@@ -107,14 +92,7 @@ jobs:
       env:
         TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
-
-    - name: 缓存加速
-      uses: stupidloud/cachewrtbuild@main
-      with:
-        ccache: 'true'
-        mixkey: 'x86_64'
-        prefix: 'openwrt'
-        
+       
     - name: Download package
       id: package
       run: |
@@ -140,7 +118,7 @@ jobs:
       run: df -hT
 
     - name: Upload bin directory
-      uses: actions/upload-artifact@v1
+      uses: actions/upload-artifact@main
       if: steps.compile.outputs.status == 'success' && env.UPLOAD_BIN_DIR == 'true'
       with:
         name: OpenWrt_bin${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
@@ -212,5 +190,7 @@ jobs:
       with:
         keep_latest: 10
         delete_tags: true
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}        
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
