@@ -51,6 +51,6 @@
 #rm -rf feeds/packages/net/hysteria
 #rm -rf feeds/packages/net/smartdns
 #rm -rf feeds/packages/net/shadowsocks-rust
-rm -rf feeds/packages/lang/golang
-git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
+#rm -rf feeds/packages/lang/golang
+#git clone https://github.com/sbwml/packages_lang_golang -b 22.x feeds/packages/lang/golang
 ./scripts/feeds update -a
