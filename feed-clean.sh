@@ -7,7 +7,8 @@ rm -rf feeds/luci/applications/luci-app-aliddns
 #rm -rf feeds/luci/applications/luci-app-autoreboot
 rm -rf feeds/luci/applications/luci-app-baidupcs-web
 rm -rf feeds/luci/applications/luci-app-beardropper
-rm -rf feeds/luci/applications/luci-app-dockerman
+#rm -rf feeds/luci/applications/luci-app-dockerman
+rm -rf feeds/smpackage/luci-app-dockerman
 #rm -rf feeds/luci/applications/luci-app-fileassistant
 #rm -rf feeds/luci/applications/luci-app-filebrowser
 rm -rf feeds/luci/applications/luci-app-gost
